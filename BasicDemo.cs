@@ -1,63 +1,47 @@
-﻿using Applitools.Appium;
-using NUnit.Framework;
+﻿using System;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Appium.Android;
-using OpenQA.Selenium.Remote;
-using OpenQA.Selenium;
-using System;
 using Xunit;
 
-namespace ApplitoolsTutorial
+namespace AppAutomation
 {
-
-    [TestFixture]
-    public class BasicDemo
+    public class AppiumAndroidTest : IDisposable
     {
+        private AppiumDriver<AndroidElement> driver;
 
-        public RemoteWebDriver driver;
-        private Eyes eyes;
-
-        [Test]
-        public void AndroidTest()
+        public AppiumAndroidTest()
         {
-            // Initialize the eyes SDK (IMPORTANT: make sure your API key is set in the APPLITOOLS_API_KEY env variable).
-            eyes = new Eyes();
+            // Set the Appium server URL (assuming it's running locally)
+            var appiumOptions = new AppiumOptions();
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, "pixel_3a");
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, "13.0");
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.App, @"C:\Users\OmkarSupal\Documents\AppAutomation\apk\ApiDemos.apk");
 
-            // Set the desired capabilities.
-            AppiumOptions options = new AppiumOptions();
-            options.AddAdditionalCapability(MobileCapabilityType.DeviceName, "Samsung Galaxy S9 WQHD GoogleAPI Emulator");
-            options.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, "9.0");
-            options.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
-            options.AddAdditionalCapability(MobileCapabilityType.App, "https://applitools.bintray.com/Examples/eyes-hello-world.apk");
-            options.AddAdditionalCapability("deviceOrientation", "portrait");
+            // Initialize the AndroidDriver with the Appium server URL and capabilities
+            driver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), appiumOptions);
 
-            options.AddAdditionalCapability("username", Environment.GetEnvironmentVariable("SAUCE_USERNAME"));
-            options.AddAdditionalCapability("accesskey", Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY"));
-            options.AddAdditionalCapability("name", "Android Demo");
-
-            driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com/wd/hub"), options);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
-
-            // Start visual UI testing.
-            eyes.Open(driver, "Contacts!", "My first Appium native C# test!");
-
-            // Visual UI testing.
-            eyes.CheckWindow("Contact list!");
-
-            // End the test.
-            eyes.Close();
+            // Set an implicit wait to handle latency
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
-        [TearDown]
-        public void AfterEach()
+        [Fact]
+        public void SampleTest()
         {
-            // Close the browser.
+            // Your test logic goes here
+            // For example, you can find an element and interact with it:
+            var element = driver.FindElementByAccessibilityId("your_element_accessibility_id");
+            element.Click();
+            
+            // Add your assertions here to verify the expected behavior
+            Assert.True(element.Displayed);
+        }
+
+        public void Dispose()
+        {
+            // Quit the driver after the test is done
             driver.Quit();
-
-            // If the test was aborted before eyes.close was called, ends the test as aborted.
-            eyes.AbortIfNotClosed();
         }
-
     }
 }
