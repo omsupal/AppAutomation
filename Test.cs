@@ -12,7 +12,7 @@ namespace AppAutomation
 
         public AppiumAndroidTest()
         {
-            // Set the Appium server URL (assuming it's running locally)
+            
             var appiumOptions = new AppiumOptions();
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, "pixel_3a");
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, "13.0");
@@ -31,9 +31,9 @@ namespace AppAutomation
         {
             // Your test logic goes here
             // For example, you can find an element and interact with it:
-            var element = driver.FindElementByAccessibilityId("your_element_accessibility_id");
+            var element = driver.FindElementByAccessibilityId("Accessibility");
             element.Click();
-            
+
             // Add your assertions here to verify the expected behavior
             Assert.True(element.Displayed);
         }
