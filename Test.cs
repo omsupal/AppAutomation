@@ -17,8 +17,8 @@ namespace AppAutomation
         {
             // Your test logic goes here
             // For example, you can find an element and interact with it:
-            // var element = AppiumFixture.driver.FindElementByAccessibilityId("Accessibility");
-            // element.Click();
+            var element = AppiumFixture.driver.FindElementByAccessibilityId("Accessibility");
+            element.Click();
 
             // // Add your assertions here to verify the expected behavior
             // Assert.True(element.Displayed);

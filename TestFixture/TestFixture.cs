@@ -18,7 +18,7 @@ namespace AppAutomation
             // Initialize and start the Appium server here if needed
             AppiumHelper.startServer();
 
-            // Thread.Sleep(9000);
+            Thread.Sleep(9000);
             var appiumOptions = new AppiumOptions();
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, "pixel_3a");
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, "13.0");
@@ -46,10 +46,13 @@ namespace AppAutomation
         {
             // Quit the driver after all the tests have executed
             driver.Quit();
-
-            // Kill the Appium server process if it hasn't exited
-            if (!AppiumHelper.appiumProcess.HasExited)
+            if (AppiumHelper.appiumProcess != null && !AppiumHelper.appiumProcess.HasExited)
+            {
+                // Stop the Appium server
                 AppiumHelper.appiumProcess.Kill();
+                AppiumHelper.appiumProcess.Dispose();
+                AppiumHelper.appiumProcess = null;
+            }
         }
     }
 }

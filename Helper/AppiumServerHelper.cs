@@ -18,7 +18,7 @@ namespace AppAutomation
             string appiumServerPath = @"C:\Users\OmkarSupal\AppData\Roaming\npm\node_modules\appium\build\lib\main.js"; // Update with your actual path
 
             // Start the Appium server process
-            var appiumProcess = new Process();
+            appiumProcess = new Process();
             appiumProcess.StartInfo.FileName = nodeJsPath;
             appiumProcess.StartInfo.Arguments = appiumServerPath + " --address 127.0.0.1 --port 4723"; // You can add any other Appium server arguments here
             appiumProcess.Start();
