@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "caps": [
+    {
+      "type": "text",
+      "name": "appium:deviceName",
+      "value": "pixel_3a"
+    },
+    {
+      "type": "text",
+      "name": "appium:platformVersion",
+      "value": "13.0"
+    },
+    {
+      "type": "text",
+      "name": "appium:automationName",
+      "value": "UiAutomator2"
+    },
+    {
+      "type": "text",
+      "name": "appium:app",
+      "value": "C:\\Users\\OmkarSupal\\Documents\\AppAutomation\\apk\\makemytrip-8-9-9.apk"
+    },
+    {
+      "type": "boolean",
+      "name": "appium:autoGrantPermissions",
+      "value": true
+    },
+    {
+      "type": "text",
+      "name": "appium:appPermission",
+      "value": "grant"
+    },
+    {
+      "type": "text",
+      "name": "platformName",
+      "value": "Android"
+    }
+  ],
+  "server": {
+    "local": {},
+    "remote": {
+      "hostname": "127.0.0.1",
+      "port": "4723",
+      "path": "/wd/hub"
+    },
+    "sauce": {
+      "dataCenter": "us-west-1"
+    },
+    "headspin": {},
+    "browserstack": {},
+    "lambdatest": {},
+    "advanced": {
+      "allowUnauthorized": false
+    },
+    "bitbar": {},
+    "kobiton": {},
+    "perfecto": {},
+    "pcloudy": {},
+    "testingbot": {},
+    "experitest": {},
+    "roboticmobi": {},
+    "remotetestkit": {}
+  },
+  "serverType": "remote",
+  "visibleProviders": []
+}

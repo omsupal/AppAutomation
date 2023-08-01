@@ -1,6 +1,10 @@
 using System;
 using System.Diagnostics;
-
+using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Enums;
+using OpenQA.Selenium.Appium.Android;
+using System;
+using System.Collections.Generic;
 namespace AppAutomation
 {
     public static class AppiumHelper
@@ -25,6 +29,8 @@ namespace AppAutomation
             Console.WriteLine(appiumProcess.Responding + "" + appiumProcess.SessionId);
 
         }
+      
+
         public static void SetJAVA_HOMEANDROID_HOME()
         {
             string javaHome = @"C:\Program Files\Java\jdk-20";

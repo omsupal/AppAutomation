@@ -11,7 +11,7 @@ namespace AppAutomation
 {
     public class AppiumFixture : IDisposable
     {
-        public static AndroidDriver<AndroidElement> driver;
+        public static AndroidDriver<AndroidElement> driver{get;set;}
 
         public AppiumFixture()
         {
@@ -24,13 +24,14 @@ namespace AppAutomation
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, "13.0");
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
             appiumOptions.AddAdditionalCapability("automationName", "UiAutomator2");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.App, @"C:\Users\OmkarSupal\Documents\AppAutomation\apk\ApiDemos.apk");
-
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.App, @"C:\Users\OmkarSupal\Documents\AppAutomation\apk\makemytrip-8-9-9.apk");
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.NoReset, true);
             try
             {
                 string appiumServerUrl = "http://127.0.0.1:4723/wd/hub";
                 Uri appiumUri = new Uri(appiumServerUrl);
                 driver = new AndroidDriver<AndroidElement>(appiumUri, appiumOptions);
+                // AppiumHelper.HandlePopups();
 
             }
             catch (Exception e)
