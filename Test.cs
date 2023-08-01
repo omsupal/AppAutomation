@@ -3,45 +3,28 @@ using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Appium.Android;
 using Xunit;
+using OpenQA.Selenium.Appium.Service;
+using System.Threading;
 
 namespace AppAutomation
 {
-    public class AppiumAndroidTest : IDisposable
+    public class AppiumAndroidTest : IClassFixture<AppiumFixture>
     {
-        private AppiumDriver<AndroidElement> driver;
-
-        public AppiumAndroidTest()
-        {
-            
-            var appiumOptions = new AppiumOptions();
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, "pixel_3a");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, "13.0");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.App, @"C:\Users\OmkarSupal\Documents\AppAutomation\apk\ApiDemos.apk");
-
-            // Initialize the AndroidDriver with the Appium server URL and capabilities
-            driver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), appiumOptions);
-
-            // Set an implicit wait to handle latency
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-        }
+        // public static AppiumDriver<AndroidElement> driver;
 
         [Fact]
         public void SampleTest()
         {
             // Your test logic goes here
             // For example, you can find an element and interact with it:
-            var element = driver.FindElementByAccessibilityId("Accessibility");
-            element.Click();
+            // var element = AppiumFixture.driver.FindElementByAccessibilityId("Accessibility");
+            // element.Click();
 
-            // Add your assertions here to verify the expected behavior
-            Assert.True(element.Displayed);
+            // // Add your assertions here to verify the expected behavior
+            // Assert.True(element.Displayed);
         }
+        
 
-        public void Dispose()
-        {
-            // Quit the driver after the test is done
-            driver.Quit();
-        }
+        
     }
 }

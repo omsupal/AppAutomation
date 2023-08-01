@@ -3,16 +3,28 @@ using System.Diagnostics;
 
 namespace AppAutomation
 {
-    public class AppiumHelper
+    public static class AppiumHelper
     {
-        // private static Process appiumProcess;
 
-        public Process appiumProcess{get;set;}
-        private string nodePath;
-        private string appiumPath;
-        private string androidSdkPath;
-        private int appiumPort;
-        
+        public static Process appiumProcess { get; set; }
+        private static string nodePath;
+        private static string appiumPath;
+        private static string androidSdkPath;
+        private static int appiumPort;
+        public static void startServer()
+        {
+            // Set the path to the Appium server executable
+            string nodeJsPath = @"C:\Program Files\nodejs\node.exe";
+            string appiumServerPath = @"C:\Users\OmkarSupal\AppData\Roaming\npm\node_modules\appium\build\lib\main.js"; // Update with your actual path
+
+            // Start the Appium server process
+            var appiumProcess = new Process();
+            appiumProcess.StartInfo.FileName = nodeJsPath;
+            appiumProcess.StartInfo.Arguments = appiumServerPath + " --address 127.0.0.1 --port 4723"; // You can add any other Appium server arguments here
+            appiumProcess.Start();
+            Console.WriteLine(appiumProcess.Responding + "" + appiumProcess.SessionId);
+
+        }
         public static void SetJAVA_HOMEANDROID_HOME()
         {
             string javaHome = @"C:\Program Files\Java\jdk-20";
