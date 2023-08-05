@@ -3,30 +3,30 @@ using System.Diagnostics;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Appium.Android;
-using System;
+// using System;
 using System.Collections.Generic;
 namespace AppAutomation
 {
     public static class AppiumHelper
     {
 
-        public static Process appiumProcess { get; set; }
-        private static string nodePath;
-        private static string appiumPath;
-        private static string androidSdkPath;
-        private static int appiumPort;
-        public static void startServer()
+        public static Process AppiumProcess { get; set; }
+        // private static string NodePath;
+        // private static string AppiumPath;
+        // private static string androidSdkPath;
+        // private static int appiumPort;
+        public static void StartServer()
         {
             // Set the path to the Appium server executable
             string nodeJsPath = @"C:\Program Files\nodejs\node.exe";
             string appiumServerPath = @"C:\Users\OmkarSupal\AppData\Roaming\npm\node_modules\appium\build\lib\main.js"; // Update with your actual path
 
             // Start the Appium server process
-            appiumProcess = new Process();
-            appiumProcess.StartInfo.FileName = nodeJsPath;
-            appiumProcess.StartInfo.Arguments = appiumServerPath + " --address 127.0.0.1 --port 4723"; // You can add any other Appium server arguments here
-            appiumProcess.Start();
-            Console.WriteLine(appiumProcess.Responding + "" + appiumProcess.SessionId);
+            AppiumProcess = new Process();
+            AppiumProcess.StartInfo.FileName = nodeJsPath;
+            AppiumProcess.StartInfo.Arguments = appiumServerPath + " --address 127.0.0.1 --port 4723"; // You can add any other Appium server arguments here
+            AppiumProcess.Start();
+            Console.WriteLine(AppiumProcess.Responding + "" + AppiumProcess.SessionId);
 
         }
       
