@@ -4,12 +4,9 @@
 </p>
 
 <p align="center">
-  <a href="#introduction">Introduction</a> •
-  <a href="#features">Features</a> •
-  <a href="#getting-started">Getting Started</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#contributing">Contributing</a> •
-  <a href="#license">License</a>
+  • <a href="#introduction">Introduction</a> 
+  • <a href="#features">Features</a>
+  • <a href="#getting-started">Getting Started</a>
 </p>
 
 ---
@@ -32,7 +29,9 @@
 Before you begin, ensure you have met the following requirements:
 
 - [.NET SDK](https://dotnet.microsoft.com/download) installed
-- [Appium server](http://appium.io/) installed and running
+- [Appium server](http://appium.io/) installed
+- [UIAutomator](https://developer.android.com/training/testing/ui-automator) installed
+- [Appium Inspector](http://appium.io/docs/en/inspector.html) installed
 
 ### Installation
 
