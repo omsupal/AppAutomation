@@ -28,10 +28,10 @@
 
 Before you begin, ensure you have met the following requirements:
 
-- [.NET SDK](https://dotnet.microsoft.com/download) installed
-- [Appium server](http://appium.io/) installed
-- [UIAutomator](https://developer.android.com/training/testing/ui-automator) installed
-- [Appium Inspector](https://github.com/appium/appium-inspector) installed
+- [.NET SDK](https://dotnet.microsoft.com/download)
+- [Appium server](http://appium.io/)
+- [UIAutomator](https://developer.android.com/training/testing/ui-automator)
+- [Appium Inspector](https://github.com/appium/appium-inspector)
 
 ### Installation
 
