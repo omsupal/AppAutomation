@@ -77,6 +77,26 @@ namespace AppAutomation
             AppiumFixture.Driver.PressKeyCode(new KeyEvent().WithKeyCode(AndroidKeyCode.Back));
         }
 
+        [Fact]
+        public void Makemytripscroll()
+        {
+            AndroidElement useremail = AppiumFixture.Driver.FindElementById("com.makemytrip:id/inputFieldChild");
+            useremail.SendKeys("supalomkar225@gmail.com");
+            AndroidElement continuebtn = AppiumFixture.Driver.FindElementById("com.makemytrip:id/btn_continue");
+            continuebtn.Click();
+            AndroidElement skipbtn = AppiumFixture.Driver.FindElementById("com.makemytrip:id/tvSkip");
+            skipbtn.Click();
+            AppiumFixture.Driver.PressKeyCode(new KeyEvent().WithKeyCode(AndroidKeyCode.Back));
+        }
 
+        [Fact]
+        public void UmrahmeTest()
+        {
+            // Given
+        
+            // When
+        
+            // Then
+        }
     }
 }
